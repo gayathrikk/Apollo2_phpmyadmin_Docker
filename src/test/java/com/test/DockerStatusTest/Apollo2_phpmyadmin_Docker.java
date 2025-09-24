@@ -17,12 +17,12 @@ public class Apollo2_phpmyadmin_Docker {
         String vmIpAddress = "172.16.20.232";
         String username = "hbp";
         String password = "Health#123";
-        String containerId = "5d7f1b28ba2f";
+        String containerName = "phpmyadmin";  // ✅ Using docker name instead of ID
 
-        System.out.println("Apollo2 phpMyAdmin Docker ID = " + containerId);
+        System.out.println("Apollo2 phpMyAdmin Docker = " + containerName);
 
-        if (containerId.isEmpty()) {
-            System.out.println("Container ID is required.");
+        if (containerName.isEmpty()) {
+            System.out.println("Container name is required.");
             return;
         }
 
@@ -34,7 +34,7 @@ public class Apollo2_phpmyadmin_Docker {
             session.connect();
 
             ChannelExec channel = (ChannelExec) session.openChannel("exec");
-            channel.setCommand("docker inspect --format='{{.State.Status}}' " + containerId);
+            channel.setCommand("docker inspect --format='{{.State.Status}}' " + containerName);
             channel.setInputStream(null);
             channel.setErrStream(System.err);
             BufferedReader reader = new BufferedReader(new InputStreamReader(channel.getInputStream()));
