@@ -16,7 +16,7 @@ public class Apollo2_phpmyadmin_Docker {
 
         String vmIpAddress = "172.16.20.232";
         String username = "hbp";
-        String password = "Health#123";
+        String password = "hbpsgbclab@123";
         String containerName = "phpmyadmin";  // ✅ Using docker name instead of ID
 
         System.out.println("Apollo2 phpMyAdmin Docker = " + containerName);
